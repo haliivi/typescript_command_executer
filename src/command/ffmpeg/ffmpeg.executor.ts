@@ -29,11 +29,10 @@ export class FfmpegExecutor extends CommandExecutor<IFfmpegInput> {
             .input(path)
             .setVideoSize(width, height)
             .output(output)
-        return {command: 'ffmpeg', args, output}
+        return {command: 'C:\\Program Files\\ffmpeg-6.0-essentials_build\\bin\\ffmpeg.exe', args, output}
     }
 
     protected spawn({command, output, args}: ICommandExecFfmpeg): ChildProcessWithoutNullStreams {
-        this.fileService.deleteFileIfExists(output);
         return spawn(command, args)
     }
 
